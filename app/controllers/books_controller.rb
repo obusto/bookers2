@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :is_my_bookpage, {only: [:edit]}
-  
+
   def new
   end
 
@@ -25,7 +25,7 @@ class BooksController < ApplicationController
   def show
     @book_new = Book.new
     @book = Book.find(params[:id])
-    @user = User.find(current_user.id)
+    @user = @book.user
   end
 
   def edit
